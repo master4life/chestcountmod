@@ -84,18 +84,6 @@ public class Render {
         GlStateManager.enableLighting();
         GlStateManager.popMatrix();
     }
-
-    public static void drawStringCentered(String str, FontRenderer fr, float x, float y, boolean shadow, int colour) {
-        int strLen = fr.getStringWidth(str);
-
-        float x2 = x - strLen / 2f;
-        float y2 = y - fr.FONT_HEIGHT / 2f;
-
-        GL11.glTranslatef(x2, y2, 0);
-        fr.drawString(str, 0, 0, colour, shadow);
-        GL11.glTranslatef(-x2, -y2, 0);
-    }
-
     public static void drawTextAtWorld(String text, float x, float y, float z, int color, float scale, boolean increase, boolean renderBlackBox, boolean depth, float partialTicks) {
         float lScale = scale;
 
@@ -110,7 +98,7 @@ public class Render {
             lScale *= 0.45f * multiplier;
         }
 
-        GlStateManager.color(1f, 1f, 1f, 0.5f);
+        //GlStateManager.color(1f, 1f, 1f, 0.5f);
         GlStateManager.pushMatrix();
         GlStateManager.translate(renderPos.x, renderPos.y, renderPos.z);
         GlStateManager.rotate(-renderManager.playerViewY, 0.0f, 1.0f, 0.0f);
@@ -118,14 +106,11 @@ public class Render {
         GlStateManager.scale(-lScale, -lScale, lScale);
         GlStateManager.disableLighting();
         if (depth) {
-            GlStateManager.depthMask(true);
             GL11.glDisable(GL11.GL_DEPTH_TEST);
             GlStateManager.disableDepth();
         }
-        GlStateManager.enableBlend();
-        //GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
-        GlStateManager.disableTexture2D();
+        GlStateManager.depthMask(false);
+        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
         int textWidth = fontRenderer.getStringWidth(text);
 
@@ -143,17 +128,16 @@ public class Render {
             GlStateManager.enableTexture2D();
         }
 
+        //GL14.glBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, GL11.GL_ONE, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        //GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, GL11.GL_ONE, GL11.GL_ONE_MINUS_SRC_ALPHA);
         GlStateManager.enableBlend();
-        GL14.glBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, GL11.GL_ONE, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GlStateManager.tryBlendFuncSeparate(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, GL11.GL_ONE, GL11.GL_ONE_MINUS_SRC_ALPHA);
         fontRenderer.drawString(text, -textWidth / 2, 0, color);
-
+        GlStateManager.depthMask(true);
         GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
+        GlStateManager.enableLighting();
 
-        if (depth) {
-            GlStateManager.depthMask(false);
+        if (depth)
             GlStateManager.enableDepth();
-        }
         GlStateManager.popMatrix();
     }
 
