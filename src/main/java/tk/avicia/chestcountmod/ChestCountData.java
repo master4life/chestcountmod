@@ -41,6 +41,7 @@ public class ChestCountData {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
+        JsonObject chestData = ChestCountMod.getMythicData().getChestData();
         JsonObject mythicData = ChestCountMod.getMythicData().getMythicData();
         JsonElement dryCount = ChestCountMod.getMythicData().getDryData().get(ChestCountMod.PLAYER_UUID);
         JsonObject lastMythic = ChestCountMod.getMythicData().getLastMythic();

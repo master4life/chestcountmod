@@ -31,9 +31,14 @@ public class ConfigsGui extends GuiScreen {
             int y = sectionList.indexOf(configsSection) * settingLineHeight;
 
             int color = 0x777777;
+            String menuEntry = configsSection.button.displayString;
             // Makes the enabled options brighter
-            if (configsSection.button.displayString.equals("Enabled")) {
-                color = 0xFFFFFF;
+            String[] whiteEx = { "Enabled", "Edit", "Close", "Nearby", "Normal", "Far", "Everywhere"};
+            for (String white : whiteEx ) {
+                if (menuEntry.equals(white)) {
+                    color = 0xFFFFFF;
+                    break;
+                }
             }
             // Draws a shadowed string with the opposite color, to make it easier to read depending on the background
             this.drawString(this.fontRenderer, configsSection.title, this.width / 2 - this.width / 4 + 1, y + 22, 0xFFFFFF - color);

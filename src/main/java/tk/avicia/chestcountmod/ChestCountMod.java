@@ -23,7 +23,7 @@ import java.util.Random;
 public class ChestCountMod {
     public static final String MODID = "chestcountmod";
     public static final String NAME = "ChestCountMod";
-    public static final String VERSION = "1.1";
+    public static final String VERSION = "1.4";
 
     public static final Config CONFIG = new Config(new ConfigSetting[]{
             new ConfigSetting("Randomize color of Loot Chest names", new String[]{"Enabled", "Disabled"}, "Enabled", "enableColoredName"),
@@ -33,7 +33,9 @@ public class ChestCountMod {
             new ConfigSetting("Always display session chest count on screen", new String[]{"Enabled", "Disabled"}, "Disabled", "alwaysShowSessionChestCount"),
             new ConfigSetting("Always display dry count on screen", new String[]{"Enabled", "Disabled"}, "Disabled", "alwaysShowDry"),
             new ConfigSetting("Always display last mythic on screen", new String[]{"Enabled", "Disabled"}, "Disabled", "alwaysShowLastMythic"),
-            new ConfigSetting("Info location", new String[]{"Edit", "Editing"}, "Edit", "infoLocation")
+            new ConfigSetting("Info location", new String[]{"Edit", "Editing"}, "Edit", "infoLocation"),
+            new ConfigSetting("How far should chests infos be shown?", new String[]{ "Close", "Nearby", "Normal","Far", "Everywhere" }, "Nearby", "distanceChest"),
+            new ConfigSetting("Display mythic possibilities upon Loot Chest", new String[]{"Enabled", "Disabled"}, "Disabled", "displayMythicOnChest")
     });
 
     public static final Locations LOCATIONS = new Locations(new HashMap<String, String>() {{
@@ -74,6 +76,7 @@ public class ChestCountMod {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new EventHandlerClass());
+        MinecraftForge.EVENT_BUS.register(new DisplayChest());
         ClientCommandHandler.instance.registerCommand(new LastMythicCommand());
         ClientCommandHandler.instance.registerCommand(new ConfigsCommand());
     }
