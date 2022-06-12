@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
-public class PotentialMythic {
+public class MythicUtils {
     public static String[] mythicType(int from, int to, int tier) {
         StringBuilder mythic = new StringBuilder();
         for (int i : IntStream.range(from, to).toArray()) {

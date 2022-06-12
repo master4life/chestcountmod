@@ -45,18 +45,18 @@ public class InfoDisplay {
         // offset balances the displays, so they don't have blank rows
         int offset = 0;
         if (showChestCount) {
-            elementsList.add(new TextElement("Chests Opened: " + chestCount, location.x + 1, location.y + 1, Color.BLACK));
-            elementsList.add(new TextElement(TextFormatting.DARK_PURPLE + "Chests Opened: " + TextFormatting.AQUA + chestCount, location.x, location.y, Color.WHITE));
+            elementsList.add(new TextElement("ChestUtils Opened: " + chestCount, location.x + 1, location.y + 1, Color.BLACK));
+            elementsList.add(new TextElement(TextFormatting.DARK_PURPLE + "ChestUtils Opened: " + TextFormatting.AQUA + chestCount, location.x, location.y, Color.WHITE));
             offset++;
         }
         if (showSessionChestCount) {
-            elementsList.add(new TextElement("Session Chests: "  + ChestCountMod.getChestCountData().getSessionChestCount(), location.x + 1, location.y + (12 * offset) + 1, Color.BLACK));
-            elementsList.add(new TextElement(TextFormatting.DARK_PURPLE + "Session Chests: " + TextFormatting.AQUA + ChestCountMod.getChestCountData().getSessionChestCount(), location.x, location.y + (12 * offset), Color.WHITE));
+            elementsList.add(new TextElement("Session ChestUtils: "  + ChestCountMod.getChestCountData().getSessionChestCount(), location.x + 1, location.y + (12 * offset) + 1, Color.BLACK));
+            elementsList.add(new TextElement(TextFormatting.DARK_PURPLE + "Session ChestUtils: " + TextFormatting.AQUA + ChestCountMod.getChestCountData().getSessionChestCount(), location.x, location.y + (12 * offset), Color.WHITE));
             offset++;
         }
         if (showDryStreak) {
-            elementsList.add(new TextElement("Chests Dry: " + dry, location.x + 1, location.y + (12 * offset) + 1, Color.BLACK));
-            elementsList.add(new TextElement(TextFormatting.DARK_PURPLE + "Chests Dry: " + TextFormatting.AQUA + dry, location.x, location.y + (12 * offset), Color.WHITE));
+            elementsList.add(new TextElement("ChestUtils Dry: " + dry, location.x + 1, location.y + (12 * offset) + 1, Color.BLACK));
+            elementsList.add(new TextElement(TextFormatting.DARK_PURPLE + "ChestUtils Dry: " + TextFormatting.AQUA + dry, location.x, location.y + (12 * offset), Color.WHITE));
             offset++;
         }
         if (showLastMythic) {

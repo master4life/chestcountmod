@@ -146,7 +146,7 @@ public class EventHandlerClass {
                                     itemTotalLVL += Integer.parseInt(clearedLore.split(": ")[1]);
                                 } else if ((clearedLore.split(": ")[1].split("-")).length == 2) {
                                     // SECOND NUMERIC: Items with a Range of Levels
-                                    // Like Unidentified Chests
+                                    // Like Unidentified ChestUtils
                                     String[] range = clearedLore.split(": ")[1].split("-");
 
                                     itemTotalLVL += (Integer.parseInt(range[0]) +

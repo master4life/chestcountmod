@@ -42,10 +42,10 @@ public class MythicData {
             newData.addProperty("x", x);
             newData.addProperty("y", y);
             newData.addProperty("z", z);
-            if (!currentData.has("Chests")) {
-                currentData.add("Chests", new JsonArray());
+            if (!currentData.has("ChestUtils")) {
+                currentData.add("ChestUtils", new JsonArray());
             }
-            currentData.get("Chests").getAsJsonArray().add(newData);
+            currentData.get("ChestUtils").getAsJsonArray().add(newData);
             CustomFile chestData = new CustomFile(ChestCountMod.getMC().mcDataDir, "chestcountmod/chestData.json");
             chestData.writeJson(currentData);
         } catch (NullPointerException ex) {
@@ -111,7 +111,7 @@ public class MythicData {
 
     public int getLevelChest() {
         int level = 0;
-        JsonArray chestData = getChestData().getAsJsonArray("Chests");
+        JsonArray chestData = getChestData().getAsJsonArray("ChestUtils");
 
         if (chestData == null)
             return 0;

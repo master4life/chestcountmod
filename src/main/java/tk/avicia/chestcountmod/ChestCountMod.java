@@ -15,9 +15,7 @@ import tk.avicia.chestcountmod.configs.ConfigsCommand;
 import tk.avicia.chestcountmod.configs.locations.Locations;
 
 import java.awt.*;
-import java.util.HashMap;
-import java.util.Random;
-
+import java.util.*;
 
 @Mod(modid = ChestCountMod.MODID, name = ChestCountMod.NAME, version = ChestCountMod.VERSION)
 public class ChestCountMod {
@@ -34,8 +32,9 @@ public class ChestCountMod {
             new ConfigSetting("Always display dry count on screen", new String[]{"Enabled", "Disabled"}, "Disabled", "alwaysShowDry"),
             new ConfigSetting("Always display last mythic on screen", new String[]{"Enabled", "Disabled"}, "Disabled", "alwaysShowLastMythic"),
             new ConfigSetting("Info location", new String[]{"Edit", "Editing"}, "Edit", "infoLocation"),
-            new ConfigSetting("How far should chests infos be shown?", new String[]{ "Close", "Nearby", "Normal","Far", "Everywhere" }, "Nearby", "distanceChest"),
-            new ConfigSetting("Display mythic possibilities upon Loot Chest", new String[]{"Enabled", "Disabled"}, "Disabled", "displayMythicOnChest")
+            new ConfigSetting("How far should chests infos be shown?", new String[]{"Close", "Nearby", "Normal", "Far", "Everywhere"}, "Nearby", "distanceChest"),
+            new ConfigSetting("Display mythic possibilities upon Loot Chest", new String[]{"Enabled", "Disabled"}, "Disabled", "displayMythicOnChest"),
+            new ConfigSetting("WIP: Auto-pathfinding to your Loot Chest collection", new String[]{"Enabled", "Disabled"}, "Disabled", "displayPathfinding")
     });
 
     public static final Locations LOCATIONS = new Locations(new HashMap<String, String>() {{
@@ -80,6 +79,7 @@ public class ChestCountMod {
         ClientCommandHandler.instance.registerCommand(new LastMythicCommand());
         ClientCommandHandler.instance.registerCommand(new ConfigsCommand());
     }
+
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
