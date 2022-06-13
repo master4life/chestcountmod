@@ -149,8 +149,11 @@ public class DisplayChest {
         }
 
         if (ChestCountMod.CONFIG.getConfigBoolean("displayPathfinding") && !this.path.isEmpty()) {
-            int max = Math.min(this.path.size() -1, 128);
+            int max = Math.min(this.path.size() - 1, 128);
             for (int i = 0; i < max; i++) {
+                if (i+1 >= this.path.size())
+                    break;
+
                 BlockPos start = this.path.get(i);
                 BlockPos end = this.path.get(i+1);
                 RenderUtils.drawLine(start, end, new Color(0, 255, 255, 150), tick, false);

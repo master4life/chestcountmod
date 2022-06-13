@@ -115,6 +115,8 @@ public class AStarCustomPathFinder {
                 (block instanceof BlockFence) ||
                 (block instanceof BlockWall) ||
                 (block instanceof BlockGlass) ||
+                (block instanceof BlockSlab) ||
+                (block instanceof BlockBarrier) ||
                 (block instanceof BlockPistonBase) ||
                 (block instanceof BlockPistonExtension) ||
                 (block instanceof BlockPistonMoving) ||

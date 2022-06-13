@@ -99,7 +99,7 @@ public class RenderUtils {
         GlStateManager.translate(-realX, -realY, -realZ);
         GlStateManager.glLineWidth(3f);
         GlStateManager.disableTexture2D();
-        if (!depth) {
+        if (depth) {
             GlStateManager.disableDepth();
             GlStateManager.depthMask(false);
         }
@@ -116,7 +116,7 @@ public class RenderUtils {
 
         GlStateManager.translate(realX, realY, realZ);
         GlStateManager.disableBlend();
-        if (!depth) {
+        if (depth) {
             GlStateManager.enableDepth();
             GlStateManager.depthMask(true);
         }
