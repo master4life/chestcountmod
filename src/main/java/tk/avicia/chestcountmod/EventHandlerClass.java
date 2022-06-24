@@ -72,6 +72,7 @@ public class EventHandlerClass {
             String containerName = lowerInventory.getName();
 
             if (ChestCountMod.getMythicData().getChests() == null) {
+                // Fallback to create a dummy file
                 ChestCountMod.getMythicData().getChestData();
             }
 

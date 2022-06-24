@@ -42,10 +42,10 @@ public class MythicData {
             newData.addProperty("x", x);
             newData.addProperty("y", y);
             newData.addProperty("z", z);
-            if (!currentData.has("ChestUtils")) {
-                currentData.add("ChestUtils", new JsonArray());
+            if (!currentData.has("Chests")) {
+                currentData.add("Chests", new JsonArray());
             }
-            currentData.get("ChestUtils").getAsJsonArray().add(newData);
+            currentData.get("Chests").getAsJsonArray().add(newData);
             CustomFile chestData = new CustomFile(ChestCountMod.getMC().mcDataDir, "chestcountmod/chestData.json");
             chestData.writeJson(currentData);
         } catch (NullPointerException ex) {

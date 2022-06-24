@@ -156,7 +156,7 @@ public class DisplayChest {
 
                 BlockPos start = this.path.get(i);
                 BlockPos end = this.path.get(i+1);
-                RenderUtils.drawLine(start, end, new Color(0, 255, 255, 150), tick, false);
+                RenderUtils.drawLine(start, end, new Color(255, 0, 38, 150), tick, false);
             }
         }
     }

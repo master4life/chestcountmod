@@ -15,7 +15,7 @@ public class AStarCustomPathFinder {
     private ArrayList<Vec3d> path = new ArrayList<>();
     private ArrayList<Hub> hubs = new ArrayList<>();
     private ArrayList<Hub> hubsToWork = new ArrayList<>();
-    private double minDistanceSquared = 9;
+    private double minDistanceSquared = 1;
     private boolean nearest = true;
 
     private static final Vec3d[] flatCardinalDirections = {
@@ -98,7 +98,11 @@ public class AStarCustomPathFinder {
         BlockPos block1 = new BlockPos(x, y, z);
         BlockPos block2 = new BlockPos(x, y + 1, z);
         BlockPos block3 = new BlockPos(x, y - 1, z);
-        return !isBlockSolid(block1) && !isBlockSolid(block2) && (isBlockSolid(block3) || !checkGround) && isSafeToWalkOn(block3);
+        BlockPos block4 = new BlockPos(x + 1, y, z);
+        BlockPos block5 = new BlockPos(x + 1, y, z);
+        BlockPos block6 = new BlockPos(x, y, z + 1);
+        BlockPos block7 = new BlockPos(x, y, z + 1);
+        return !isBlockSolid(block1) && !isBlockSolid(block2) && !isBlockSolid(block4) && !isBlockSolid(block5) && !isBlockSolid(block6) && !isBlockSolid(block6) && (isBlockSolid(block3) || !checkGround) && isSafeToWalkOn(block3);
     }
 
     private static boolean isBlockSolid(BlockPos blockPos) {
