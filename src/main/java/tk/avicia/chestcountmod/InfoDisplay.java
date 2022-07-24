@@ -45,13 +45,13 @@ public class InfoDisplay {
         // offset balances the displays, so they don't have blank rows
         int offset = 0;
         if (showChestCount) {
-            elementsList.add(new TextElement("ChestUtils Opened: " + chestCount, location.x + 1, location.y + 1, Color.BLACK));
-            elementsList.add(new TextElement(TextFormatting.DARK_PURPLE + "ChestUtils Opened: " + TextFormatting.AQUA + chestCount, location.x, location.y, Color.WHITE));
+            elementsList.add(new TextElement("Cheats Opened: " + chestCount, location.x + 1, location.y + 1, Color.BLACK));
+            elementsList.add(new TextElement(TextFormatting.DARK_PURPLE + "Cheats Opened: " + TextFormatting.AQUA + chestCount, location.x, location.y, Color.WHITE));
             offset++;
         }
         if (showSessionChestCount) {
-            elementsList.add(new TextElement("Session ChestUtils: "  + ChestCountMod.getChestCountData().getSessionChestCount(), location.x + 1, location.y + (12 * offset) + 1, Color.BLACK));
-            elementsList.add(new TextElement(TextFormatting.DARK_PURPLE + "Session ChestUtils: " + TextFormatting.AQUA + ChestCountMod.getChestCountData().getSessionChestCount(), location.x, location.y + (12 * offset), Color.WHITE));
+            elementsList.add(new TextElement("Session Cheats: "  + ChestCountMod.getChestCountData().getSessionChestCount(), location.x + 1, location.y + (12 * offset) + 1, Color.BLACK));
+            elementsList.add(new TextElement(TextFormatting.DARK_PURPLE + "Session Cheats: " + TextFormatting.AQUA + ChestCountMod.getChestCountData().getSessionChestCount(), location.x, location.y + (12 * offset), Color.WHITE));
             offset++;
         }
         if (showDryStreak) {
